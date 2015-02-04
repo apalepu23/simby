@@ -31,8 +31,10 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
 
-# Devise for users
+# Devise for users; Facebook authentication
 gem 'devise', '>= 3.2.4'
+gem 'omniauth-facebook'
+gem 'koala', '~> 1.11.0rc'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

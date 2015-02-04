@@ -1,2 +1,8 @@
 <h1>SIMBY</h1>
 <h2>Temporary Landing Page</h2>
+<% if user_signed_in? %>
+	<%= image_tag current_user.prof_pic %>
+	<% current_user.friends.each do |friend| %>
+		friend
+	<% end %>
+<% end %>
