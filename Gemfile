@@ -36,6 +36,8 @@ gem 'devise', '>= 3.2.4'
 gem 'omniauth-facebook'
 gem 'koala', '~> 1.11.0rc'
 
+gem 'simple_form'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

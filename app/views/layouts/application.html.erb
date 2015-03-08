@@ -48,9 +48,11 @@
 	        </form>
         </div>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Sign In</a></li>
-			<li><a href="#">Sign Up</a></li>
-			<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+			<% if user_signed_in? %>
+				<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete%></li>
+			<% else %>
+				<li><%= link_to "Sign in", new_user_session_path %></li>
+			<% end %>
 		</ul>
     </div>
 </div>				

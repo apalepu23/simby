@@ -13,3 +13,29 @@ body {
 	background: url('/assets/white_wall_hash.png')
 }
 
+
+#sign-in-panel {
+	max-width: 300px; 
+	margin: 0 auto; 
+	margin-top: 100px; 
+}
+
+.sign-in-input {
+	height: 50px; 
+	padding: 15px 15px; 
+	margin-bottom: 5px; 
+}
+
+.sign-in-header {
+	margin: 10px auto; 
+	text-align: center; 
+}
+
+h2.sign-in-header {
+	margin-bottom: 30px; 
+}
+
+.sign-in-button {
+	padding: 15px;
+	width: 100%;  
+}

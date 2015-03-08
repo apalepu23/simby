@@ -3,6 +3,6 @@
 <% if user_signed_in? %>
 	<%= image_tag current_user.prof_pic %>
 	<% current_user.friends.each do |friend| %>
-		friend
+		<h3>friend</h3>
 	<% end %>
 <% end %>
