@@ -39,3 +39,31 @@ h2.sign-in-header {
 	padding: 15px;
 	width: 100%;  
 }
+
+#category-input {
+	width: 15em; 
+}
+
+#price-input {
+	width: 7em; 
+}
+
+.block_radio_button_collection {
+	display: block; 
+}
+
+.new-listing-input {
+	margin-bottom: 10px; 
+}
+
+.clr {
+  clear:both;
+}
+
+#submit-listing-button {
+	padding: 15px;
+	margin-top: 10em;  
+	width: 100%; 
+	border-radius: 0px; 
+	box-shadow: 6px 4px 3px #888888;
+}
