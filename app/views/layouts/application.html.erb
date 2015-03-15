@@ -15,13 +15,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Simby</a>
+        <%= link_to "Simby", root_path, :class => "navbar-brand" %>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
     	<div class="col-sm-2 col-md-2">
-	        <button type="button" class="btn btn-primary navbar-btn">
-         		<span class="glyphicon glyphicon-plus"></span>&nbsp;Create Listing
-      		</button>
+      		<button class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#myModal">
+			  <span class="glyphicon glyphicon-plus"></span>&nbsp;Create Listing
+			</button>
         </div>
     	<div class="navbar-center">
     		<ul class="nav navbar-nav">
@@ -49,13 +49,53 @@
         </div>
 		<ul class="nav navbar-nav navbar-right">
 			<% if user_signed_in? %>
-				<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete%></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= image_tag current_user.prof_pic, :class => "navbar-prof-pic" %>&nbsp;<%= current_user.get_name %><span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<%= link_to "Sign out", destroy_user_session_path, :method => :delete%></li>
+						</li>
+					</ul>
+				</li>
 			<% else %>
 				<li><%= link_to "Sign in", new_user_session_path %></li>
 			<% end %>
 		</ul>
     </div>
-</div>				
+</div>		
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create a new listing</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(Listing.new, :url => seller_listings_path(:format => :json), html: { multipart: true, class: "dropzone"}) do |f| %>
+		 <div class="col-xs-6">
+		    <%= f.input :category, :collection => ["Furniture", "Appliances", "Electronics", "Tickets", "Real Estate", "Miscellaneous"], input_html: { :id => "category-input", :class => "new-listing-input"} %>
+		    <%= f.input :title, input_html: { :class => "new-listing-input"} %>
+		    <%= f.input :description, as: :text, input_html: { :class => "new-listing-input"} %>
+		    <%= f.input :price, input_html: { :id => "price-input", :class => "new-listing-input"} %>
+		    <%= f.collection_radio_buttons :sale_type, [[1, 'Auction (Card)'], [2, 'Auction (In Person/Cash)'], [3, 'Regular (Card)'], [4, 'Regular (In Person/Cash)']], :first, :last, label: 'Sale Type', item_wrapper_class: :block_radio_button_collection, input_html: { :class => "new-listing-input"} %>
+		 </div>
+	    <div class="col-xs-6">
+	        <%= f.file_field :photo %><br>
+	    </div>
+	  	<br class="clr" />
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Submit Listing", :class => "btn btn-success", :id => "submit-listing-button" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>		
 
 <% if notice.present? %>
 	<p class="alert alert-info"><%= notice %></p>

@@ -1,8 +1,14 @@
-<h1>SIMBY</h1>
-<h2>Temporary Landing Page</h2>
-<% if user_signed_in? %>
-	<%= image_tag current_user.prof_pic %>
-	<% current_user.friends.each do |friend| %>
-		<h3>friend</h3>
+<br />
+<div class="col-xs-10 col-xs-offset-1">
+	<h1>SIMBY</h1>
+	<% if user_signed_in? %>
+		<% @listings.each do |listing| %>
+			<div class="col-sm-3">
+				<%= link_to listing_path(listing), :class => "listing-gallery" do %>
+					<h4><%= listing.title %></h4>
+					<%= image_tag listing.photo, :class => "img-responsive" %>
+				<% end %>
+			</div>
+		<% end %>
 	<% end %>
-<% end %>
+</div>

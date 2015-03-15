@@ -1,0 +1,15 @@
+
+
+
+<h1>My Listing</h1>
+<%= form_for(Listing.new, :url => seller_listings_path, html: { multipart: true, class: "dropzone"}) do |f|  %>
+  <%= f.text_field :category %>
+    <%= f.text_field :title %>
+    <%= f.text_field :description %>
+    <%= f.text_field :price %>
+    <%= f.text_field :sale_type %>
+  <div class="fallback">
+    <%= f.file_field :photo %><br>
+  </div>
+  <%= f.submit "Upload my Listing" %>
+<% end %>

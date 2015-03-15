@@ -15,3 +15,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require dropzone
+
+$(document).ready(function(){
+	// disable auto discover
+	Dropzone.autoDiscover = false;
+
+	var dropzone = $(".dropzone").dropzone({
+		autoProcessQueue: true, 
+		maxFilesize: 256, // Set the maximum file size to 256 MB
+		paramName: "listing[photo]", // Rails expects the file upload to be something like model[field_name]
+		addRemoveLinks: false // Don't show remove links on dropzone itself.
+	});	
+
+	dropzone.on("success", function(file, response) {
+		this.removeFile(file)
+		$.getScript("/seller/listings")
+	})
+});

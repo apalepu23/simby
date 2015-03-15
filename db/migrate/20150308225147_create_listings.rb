@@ -7,6 +7,7 @@ class CreateListings < ActiveRecord::Migration
 		t.decimal :price
 		t.string :sale_type
 		t.integer :user_id
+		t.attachment :photo
      	t.timestamps
     end
 

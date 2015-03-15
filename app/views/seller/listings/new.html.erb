@@ -1,19 +1,18 @@
 <br />
 <div class="col-xs-10 col-xs-offset-1">
 	<h1>I want to sell something!</h1>
-	<%= simple_form_for @listing, :url => seller_listings_path do |f| %>
-	<div class="col-xs-6">
+	<%= simple_form_for(@listing, :url => seller_listings_path(:format => :json), html: { multipart: true, class: "dropzone"}) do |f| %>
+	 <div class="col-xs-6">
 	    <%= f.input :category, :collection => ["Furniture", "Appliances", "Electronics", "Tickets", "Real Estate", "Miscellaneous"], input_html: { :id => "category-input", :class => "new-listing-input"} %>
 	    <%= f.input :title, input_html: { :class => "new-listing-input"} %>
 	    <%= f.input :description, as: :text, input_html: { :class => "new-listing-input"} %>
 	    <%= f.input :price, input_html: { :id => "price-input", :class => "new-listing-input"} %>
 	    <%= f.collection_radio_buttons :sale_type, [[1, 'Auction (Card)'], [2, 'Auction (In Person/Cash)'], [3, 'Regular (Card)'], [4, 'Regular (In Person/Cash)']], :first, :last, label: 'Sale Type', item_wrapper_class: :block_radio_button_collection, input_html: { :class => "new-listing-input"} %>
-  	</div>
-  	<div class="col-xs-4">
-  		<%= f.input :title, input_html: { :class => "new-listing-input"} %>
-  	</div>
+	 </div>
+    <div class="col-xs-6">
+        <%= f.file_field :photo %><br>
+    </div>
   	<br class="clr" />
   	<%= f.submit "Submit Listing", :class => "btn btn-success", :id => "submit-listing-button" %>
   	<% end %>
-	
 </div>

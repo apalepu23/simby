@@ -40,4 +40,9 @@ class User < ActiveRecord::Base
     graph.get_connections("me", "friends", api_version: 'v2.0')
   end
 
+  def get_name
+    graph = Koala::Facebook::API.new(self.token)
+    graph.get_object("me?fields=name")['name']
+  end
+
 end

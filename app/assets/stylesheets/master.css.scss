@@ -8,6 +8,11 @@
 	border-radius: 14px 0 0 14px; 
 }
 
+.navbar-prof-pic {
+	max-height: 1.5em;  
+
+}
+
 body {
 	font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 	background: url('/assets/white_wall_hash.png')
@@ -62,8 +67,36 @@ h2.sign-in-header {
 
 #submit-listing-button {
 	padding: 15px;
-	margin-top: 10em;  
+	margin-top: 2em;  
 	width: 100%; 
 	border-radius: 0px; 
 	box-shadow: 6px 4px 3px #888888;
+}
+
+#new-listing-dropzone {
+	width: 100%;
+}
+
+.listing-description {
+	padding: 10px 5px; 
+	margin-top: 3em; 
+}
+
+.listing-seller-info {
+	margin-top: 5em; 
+	margin-bottom: 5em; 
+}
+
+.btn-listing-buy {
+	padding: 15px; 
+	width: 100%
+}
+
+.listing-gallery:hover {
+	text-decoration: none; 
+	color: black; 
+}
+
+a {
+	color: black; 
 }

@@ -1,0 +1,35 @@
+<br />
+<div class="col-xs-10 col-xs-offset-1">
+	<div class="col-xs-6">
+		<%= image_tag current_listing.photo, :class => 'img-responsive' %>
+	</div>
+	<div class="col-xs-6 text-center">
+		<h1><%= current_listing.title %></h1>
+		<h2><%= number_to_currency current_listing.price %></h2>
+		<div class="listing-description text-center">
+			<p><%= current_listing.description %></p>
+		</div>
+		<div class="btn-group" role="group">
+		  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-up"></span></button>
+		  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-down"></span></button>
+		  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pushpin"></span></button>
+		</div>
+	</div>
+	<br class="clr" />
+	<div class="col-xs-4 col-xs-offset-4 text-center listing-seller-info">
+		<%= current_user.get_name %>
+		<input id="input-24" class="rating-loading">
+		<script>
+		$("#input-24").rating({
+		    disabled: true, 
+		    showClear: false,
+		    showCaption: false, 
+		    size: 'xs'
+		});
+		</script>
+		<span class="glyphicon glyphicon-earphone"></span>&nbsp;<span class="glyphicon glyphicon-envelope"></span>
+	</div>
+	<div class="col-xs-10 col-xs-offset-1 listing-buy-div">
+		<%= link_to "I WANT THIS", "#", :class => "btn btn-success btn-listing-buy" %>
+	</div>
+</div>

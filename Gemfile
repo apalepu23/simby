@@ -38,6 +38,10 @@ gem 'koala', '~> 1.11.0rc'
 
 gem 'simple_form'
 
+gem 'dropzonejs-rails', '~> 0.4.16'
+
+gem 'paperclip', '~> 4.2.0'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

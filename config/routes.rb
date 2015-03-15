@@ -6,8 +6,9 @@ Simby::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'static_pages#index'
+  resources :listings, :only => [:index, :show]
   namespace :seller do
-    resources :listings, :only => [:new, :create, :show]
+    resources :listings, :only => [:index, :new, :create, :show]
   end
 
   # Example of regular route:
