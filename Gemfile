@@ -41,6 +41,8 @@ gem 'simple_form'
 gem 'dropzonejs-rails', '~> 0.4.16'
 
 gem 'paperclip', '~> 4.2.0'
+gem 'aws-sdk'
+gem 'figaro', '~> 0.7.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
