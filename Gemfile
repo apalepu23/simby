@@ -41,7 +41,8 @@ gem 'simple_form'
 gem 'dropzonejs-rails', '~> 0.4.16'
 
 gem 'paperclip', '~> 4.2.0'
-gem 'aws-sdk'
+gem 'nokogiri', '~> 1.5.0'
+gem 'aws-sdk', '< 2.0'
 gem 'figaro', '~> 0.7.0'
 
 group :doc do
