@@ -15,7 +15,7 @@ class Seller::ListingsController < ApplicationController
 	    # else
 	    #   render json: { error: @listing.errors.full_messages.join(',')}, :status => 400
 	    # end    
-	    redirect_to seller_listing_path(@listing, format: :html) 
+	    redirect_to seller_listing_path(@listing) 
 	  
 	end
 
