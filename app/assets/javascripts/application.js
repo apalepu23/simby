@@ -32,4 +32,10 @@ $(document).ready(function(){
 		this.removeFile(file)
 		$.getScript("/seller/listings")
 	})
+
+	$(".imgLiquidFill").imgLiquid({
+		fill: true; 
+	});
 });
+
+

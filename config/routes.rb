@@ -10,6 +10,7 @@ Simby::Application.routes.draw do
   namespace :seller do
     resources :listings, :only => [:index, :new, :create, :show]
   end
+  resources :users, :only => :show
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -17,7 +17,7 @@
 	</div>
 	<br class="clr" />
 	<div class="col-xs-4 col-xs-offset-4 text-center listing-seller-info">
-		<%= current_user.get_name %>
+		<%= link_to @listing.user.get_name, user_path(@listing.user) %>
 		<input id="input-24" class="rating-loading">
 		<script>
 		$("#input-24").rating({
