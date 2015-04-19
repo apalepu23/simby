@@ -28,21 +28,32 @@ class User < ActiveRecord::Base
 
   def prof_pic
     graph = Koala::Facebook::API.new(self.token)
-    
-    #@friends = graph.get_connections("me", "friends")
-    graph.get_object("me?fields=name,picture")['picture']['data']['url'].to_s
+    graph.get_object("me?fields=name,picture.type(large)")['picture']['data']['url'].to_s
   end
 
   def friends
     graph = Koala::Facebook::API.new(self.token)
-    
-    #@friends = graph.get_connections("me", "friends")
     graph.get_connections("me", "friends", api_version: 'v2.0')
   end
 
   def get_name
     graph = Koala::Facebook::API.new(self.token)
     graph.get_object("me?fields=name")['name']
+  end
+
+  def get_friend_picture(id)
+    graph = Koala::Facebook::API.new(self.token)
+    graph.get_picture(id)
+  end
+
+  def get_email(id)
+    graph = Koala::Facebook::API.new(self.token)
+    graph.get_object(id)['email']
+  end
+
+  def get_my_location
+    graph = Koala::Facebook::API.new(self.token)
+    graph.get_object("me")['location']['name']
   end
 
 end

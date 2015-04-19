@@ -31,11 +31,9 @@ $(document).ready(function(){
 	dropzone.on("success", function(file, response) {
 		this.removeFile(file)
 		$.getScript("/seller/listings")
-	})
-
-	$(".imgLiquidFill").imgLiquid({
-		fill: true; 
 	});
+
+	
 });
 
 

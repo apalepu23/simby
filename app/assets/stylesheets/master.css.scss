@@ -15,7 +15,7 @@
 
 body {
 	font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
-	background: url('/assets/white_wall_hash.png')
+	background: url('/assets/white_wall_hash.png');
 }
 
 
@@ -103,4 +103,55 @@ a {
 
 .user-prof-main-row {
 	height: 20em; 
+	margin-bottom: 4em; 
+}
+
+.fill-div-height {
+	display: inline-block; 
+	height: 100%; 
+}
+
+.dashboard-border-box {
+	width: 100%; 
+	padding: 0px 5px;
+	border: 2px solid black; 
+	box-shadow: 3px 5px 6px 0 #d0d0d0;
+	background: #FFF; 
+}
+
+.dashboard-subborder-box {
+	width: 100%; 
+	height: 100%;
+	padding: 0px 5px; 
+	border: 1px solid black; 
+}
+
+
+.dashboard-details {
+	list-style-type: none; 
+	text-align: center; 
+	padding-left: 0; 
+}
+
+.user-friends-and-postings-row {
+	height: 20em; 
+}
+
+.your-class {
+	background: black; 
+}
+
+.dashboard-listing {
+	width: 187px; 
+	height: 187px; 
+	margin: auto 5px;  
+
+}
+
+.slick-slider {
+	padding: 0 10px; 
+}
+.slick-prev:before, .slick-next:before {
+	font-family: 'slick';
+	color: blue;
 }

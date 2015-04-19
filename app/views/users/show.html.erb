@@ -1,9 +1,107 @@
+<script>
+	$(function() {
+		$(".imgLiquidFill").imgLiquid({
+        fill: true,
+        horizontalAlign: "center",
+        verticalAlign: "top"
+    });
+    });  
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+	    $('.single-item').slick({
+	        dots: true,
+	        infinite: false,
+	        variableWidth: true, 
+	        speed: 500,
+	        slidesToShow: 1,
+	        slidesToScroll: 1
+	    });
+	});
+ </script>
 <br />
 <div class="col-xs-10 col-xs-offset-1">
-	<div class="col-xs-4 user-prof-main-row">
-		<%= image_tag @user.prof_pic %>
+	<div class="user-prof-main-row">
+		<div class="col-xs-4 fill-div-height">
+			<div class="dashboard-border-box imgLiquidFill imgLiquid fill-div-height">
+				<%= image_tag @user.prof_pic, :class => "image-responsive" %>
+			</div>
+		</div>
+		<div class="col-xs-8 fill-div-height">
+			<div class="dashboard-border-box fill-div-height">
+				<h1 class="text-center"><%= @user.get_name %></h1>
+				<div class="col-xs-6">
+					<h3 class="text-center">Details</h3>
+				</div>
+				<div class="col-xs-6">
+					<h3 class="text-center">About Me</h3>
+				</div>
+				<br class="clr" />
+				<div class="col-xs-6">
+					<div class="dashboard-subborder-box text-center">
+						<ul class="dashboard-details">
+							<li>Phone: (703) 244-7133</li>
+							<% if @user == current_user %>
+								<li>Email: <%= @user['email'] %></li>
+								<li>Pickup Location: <%= @user.get_my_location %></li>
+							<% else %>
+								<li>Email: <%= @user.get_email(@user['id']) %></li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="dashboard-subborder-box text-center fill-div-height">
+						<p>DC sports enthusiast and family man.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="col-xs-8 user-prof-main-row">
-		<h1><%= @user.get_name %></h1>
+
+	<div class="user-friends-and-postings-row">
+		<div class="col-xs-4 fill-div-height">
+			<div class="col-xs-12">
+				<h3 class="text-center">Friends</h3>
+			</div>
+			<div class="dashboard-border-box fill-div-height">
+				<% @user.friends[0..8].each_slice(3) do |row| %>
+					<% row.each do |friend| %>
+						<div class="col-xs-4">
+							<%= image_tag @user.get_friend_picture(friend['id']), :class => "image_responsive" %>
+						</div>
+					<% end %>
+				<% end %> 
+			</div>
+		</div>
+		<div class="col-xs-8 fill-div-height">
+			<div class="col-xs-12">
+				<h3 class="text-center">Listings</h3>
+			</div>
+			<div class="dashboard-border-box fill-div-height user-listings-gallery">
+				<!-- <div class="single-item">
+					<div>
+						<%= image_tag @user.listings[0].photo , :class => "image_responsive dashboard-listing"%>
+					</div>
+					<div>
+						<%= image_tag @user.listings[1].photo , :class => "image_responsive dashboard-listing"%>
+					</div>
+		        </div> -->
+
+		        <div class="single-item">
+		        	<% @user.listings.each do |listing| %>
+		        		<div>
+		        			<%= link_to listing_path(listing) do %>
+		        				<%= image_tag listing.photo, :class => "image-responsive dashboard-listing" %>
+		        			<% end %>
+		        		</div>
+		        	<% end %>
+		        </div>
+
+
+			</div>
+		</div>
 	</div>
 </div>
+
+
